@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import trips from "@/lib/data/trips.json";
 import TripCard from "@/lib/components/trip-card";
 import Arrow from "@/lib/components/arrow";
+import DepositButton from "@/lib/components/deposit-button";
+import { depositAmount, whatsappLink } from "@/lib/contact";
 export function generateStaticParams() {
   return trips.map((t) => ({ slug: t.slug }));
 }
@@ -87,14 +89,20 @@ export default async function Trip({
           </a>
           <small>Connect directly with the GrooveTrips team.</small>
           <div className="booking-rule" />
-          <h4>Plan your payments.</h4>
+          <h4>Reserve your spot.</h4>
           <p>
-            Ask about deposits and installment options. We’ll help you
-            understand the payment schedule for this journey before you commit.
+            A ${depositAmount} per person deposit holds your place on this
+            journey. Ask us about installment options for the balance.
           </p>
-          <Link className="text-link" href="/contact#payment-options">
-            Discuss payment options <Arrow />
-          </Link>
+          <DepositButton tripName={trip.name} />
+          <a
+            className="text-link"
+            href={whatsappLink(`Hi GrooveTrips! I have a question about ${trip.name}.`)}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Questions? Chat on WhatsApp <Arrow />
+          </a>
         </aside>
       </section>
       <section className="section more-trips">

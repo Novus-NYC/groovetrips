@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/lib/components/navbar";
 import Footer from "@/lib/components/footer";
+import WhatsAppButton from "@/lib/components/whatsapp-button";
 export const metadata: Metadata = {
   title: {
     default: "GrooveTrips — Where your vibe meets your tribe",
@@ -25,6 +26,7 @@ export default function RootLayout({
         <Navbar />
         <main id="main">{children}</main>
         <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   );

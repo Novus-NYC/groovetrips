@@ -1,6 +1,8 @@
 import LocalImage from "@/lib/components/local-image";
 import Link from "next/link";
 import Arrow from "@/lib/components/arrow";
+import DepositButton from "@/lib/components/deposit-button";
+import { depositAmount, whatsappLink } from "@/lib/contact";
 export const metadata = {
   title: "Join the tribe",
   description:
@@ -23,10 +25,22 @@ export default function Contact() {
         <div id="payment-options" className="contact-payment-note">
           <h2>Let’s make room for your adventure.</h2>
           <p>
-            Interested in a deposit or installment plan? Include your trip and
-            preferred payment schedule in your inquiry. Our team will explain
-            the options, amounts, and due dates so you can plan with confidence.
+            Ready to go? A ${depositAmount} per person deposit reserves your
+            spot on any international trip. Interested in an installment plan?
+            Include your trip and preferred payment schedule in your inquiry
+            and our team will explain the options, amounts, and due dates.
           </p>
+          <div className="deposit-actions">
+            <DepositButton />
+            <a
+              className="button button-dark"
+              href={whatsappLink("Hi GrooveTrips! I'd love to learn more about your trips.")}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Chat on WhatsApp <Arrow />
+            </a>
+          </div>
         </div>
         <a
           href="https://www.groovetrips.com/contact-us"

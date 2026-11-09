@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Arrow from "@/lib/components/arrow";
+import DepositButton from "@/lib/components/deposit-button";
 
 export default function PaymentOptions() {
   return (
@@ -22,6 +23,9 @@ export default function PaymentOptions() {
           We’ll walk you through the amounts, payment schedule, and trip details
           before you commit.
         </p>
+        <div className="deposit-actions">
+          <DepositButton />
+        </div>
         <Link href="/contact#payment-options" className="text-link">
           Ask about payment options <Arrow />
         </Link>
